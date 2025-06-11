@@ -1,0 +1,147 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+
+.derecha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    width: auto;
+
+    @include tablet {
+        align-items: center;
+        flex-direction: row;
+        gap: 3rem;
+    }
+
+    .dark-mode-btn {
+        width: 3rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        filter: invert(100%);
+
+        @include tablet {
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.oculto {
+    z-index: 1;
+      
+    .close {
+        height: 6rem;
+        width: 6rem;
+        margin-bottom: 5rem;
+        filter: invert(100%);
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    @include tablet{
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    background-color: $grisOscuro;
+    height: 100rem;
+    width: 30rem;
+    top: 0;
+    right: -300rem;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+
+    .navegacion {
+        display: flex;
+        flex-direction: column;
+        visibility: visible;
+        opacity: 1;
+        height: 100rem;
+        width: 30rem;
+
+        a {
+            margin-bottom: 5rem;
+            padding: 1rem 0;
+
+            &:hover {
+                background-color: $verde;
+                padding: 1rem 0;
+                width: 100%;
+                color: $blanco;
+            }
+        }
+    }
+}
+
+.barra {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+    position: relative;
+
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.navegacion {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    transition: visibility .3s ease-in-out, opacity .3s linear, height .3 linear;
+
+    @include tablet {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    a {
+        color: $blanco;
+        text-decoration: none;
+        font-size: 2rem;
+        display: block;
+        text-align: center;
+
+        &:hover {
+            color: $verde;
+        }
+    }
+}
+
+/** Menu de hamburguesa **/
+.mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 5rem;
+    @include tablet {
+        display: none;
+    }
+
+    img {
+        margin-top: 3rem;
+        width: 3rem;
+        height: 3rem;
+    }
+}
+
+.mostrar {
+    right: 0;
+}

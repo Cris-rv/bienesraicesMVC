@@ -1,0 +1,56 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+@use 'sass:color';
+
+@include tablet {
+    .contenedor-anuncios {
+        display: grid;
+        grid-template-columns: 33.3% 33.3% 33.3%;
+        column-gap: 2rem;
+    }
+}
+
+.anuncio {
+    background-color: color.adjust($gris, $lightness: 4%);
+    border: 1px solid color.adjust($gris, $lightness: -4%);
+    margin-bottom: 3rem;
+
+    .imagen-anuncio {
+        height: 30rem;
+    }
+
+    .contenido-anuncio {
+        padding: 2rem;
+    }
+    h3, p {
+        text-align: center;
+        margin: auto;
+        overflow-wrap: break-word;
+    }
+}
+
+.precio {
+    color: $verde;
+    font-weight: $bold;
+    font-size: 3rem;
+}
+
+.iconos-caracteristicas {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    max-width: 40rem;
+
+    li {
+        flex: 1;
+        display: flex;
+
+        img {
+            flex: 0 0 4rem;
+            margin-right: 1rem;
+        }
+        p {
+            font-weight: $black;
+        }
+    }
+}
