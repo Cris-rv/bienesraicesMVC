@@ -5,6 +5,7 @@ namespace Controllers;
 use Model\Propiedad;
 use MVC\Router;
 use PHPMailer\PHPMailer\PHPMailer;
+use Model\Config;
 
 class PaginasController {
 
@@ -76,8 +77,8 @@ class PaginasController {
             $mail->isSMTP();
             $mail->Host = 'smtp-relay.brevo.com';
             $mail->SMTPAuth = true;
-            $mail->Username = '8f73b5001@smtp-brevo.com';
-            $mail->Password = 'dMtWwJymY1P7xCRn';
+            $mail->Username = Config::get('USER');
+            $mail->Password = Config::get('PASS');
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
 
