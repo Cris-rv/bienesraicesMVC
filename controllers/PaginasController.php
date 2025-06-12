@@ -74,12 +74,12 @@ class PaginasController {
 
             // Configurar SMTP
             $mail->isSMTP();
-            $mail->Host = 'sandbox.smtp.mailtrap.io';
+            $mail->Host = 'smtp-relay.brevo.com';
             $mail->SMTPAuth = true;
-            $mail->Username = '12d91e70cb228d';
-            $mail->Password = '1951d665bd4923';
+            $mail->Username = '8f73b5001@smtp-brevo.com';
+            $mail->Password = 'xsmtpsib-16e75e70a91571025bec80450ba09cdcce0bbc08880f2e73c3778c5d0a60bb0f-cpP4h97daC3b8tj0';
             $mail->SMTPSecure = 'tls';
-            $mail->Port = 2525;
+            $mail->Port = 587;
 
             // Configurar el contenido del mail
             $mail->setFrom('admin@bienesraices.com');
