@@ -77,7 +77,7 @@ class PaginasController {
             $mail->Host = 'smtp-relay.brevo.com';
             $mail->SMTPAuth = true;
             $mail->Username = '8f73b5001@smtp-brevo.com';
-            $mail->Password = 'xsmtpsib-16e75e70a91571025bec80450ba09cdcce0bbc08880f2e73c3778c5d0a60bb0f-HnmrbtNOskBM1y8Z';
+            $mail->Password = '**********BM1y8Z';
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
 
