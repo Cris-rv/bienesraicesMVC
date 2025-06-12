@@ -20,11 +20,18 @@ class Router {
         session_start();
         $auth = $_SESSION['login'] ?? null;
 
-
         // Arreglo de rutas protegidas
-        // $rutas_protegidas = ['/admin', '/propiedades/crear', '/propiedades/actualizar', '/propiedades/eliminar', '/vendedores/crear', '/vendedores/actualizar', '/vendedores/eliminar'];
+        $rutas_protegidas = ['/admin', '/propiedades/crear', '/propiedades/actualizar', '/propiedades/eliminar', '/vendedores/crear', '/vendedores/actualizar', '/vendedores/eliminar'];
 
-        $urlActual = $_SERVER['PATH_INFO'] ?? '/';
+        // Corrección clave: Usar REQUEST_URI y limpiar la URL
+        $urlActual = $_SERVER['REQUEST_URI'] ?? '/';
+        
+        // Eliminar parámetros de consulta (ej: /contacto?foo=bar → /contacto)
+        if ($pos = strpos($urlActual, '?')) {
+            $urlActual = substr($urlActual, 0, $pos);
+        }
+
+        // $urlActual = $_SERVER['PATH_INFO'] ?? '/';
         $metodo = $_SERVER['REQUEST_METHOD'];
 
         if($metodo === 'GET') {
@@ -33,10 +40,10 @@ class Router {
             $fn = $this->rutasPOST[$urlActual] ?? null;
         }
 
-        // // Si la url actual es la misma que la url protegida y no esta autenticado redireccionamos al usuario
-        // if(in_array($urlActual, $rutas_protegidas) && !$auth) {
-        //     header('Location: /');
-        // }
+        // Si la url actual es la misma que la url protegida y no esta autenticado redireccionamos al usuario
+        if(in_array($urlActual, $rutas_protegidas) && !$auth) {
+            header('Location: /');
+        }
 
         if($fn) {
             // Si la URL existe y hay una funcion asociada a la ruta que el usuario esta visitando entonces:
