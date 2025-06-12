@@ -5,7 +5,6 @@ namespace Controllers;
 use Model\Propiedad;
 use MVC\Router;
 use PHPMailer\PHPMailer\PHPMailer;
-use Model\Config;
 
 class PaginasController {
 
@@ -77,14 +76,14 @@ class PaginasController {
             $mail->isSMTP();
             $mail->Host = 'smtp-relay.brevo.com';
             $mail->SMTPAuth = true;
-            $mail->Username = Config::get('USER');
-            $mail->Password = Config::get('PASS');
+            $mail->Username = getenv('USER');
+            $mail->Password = getenv('PASS');
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
 
             // Configurar el contenido del mail
-            $mail->setFrom(Config::get('SETFROM'));
-            $mail->addAddress(Config::get('ADDRESS'));
+            $mail->setFrom(getenv('SETFROM'));
+            $mail->addAddress(getenv('SETTO'));
             $mail->Subject = 'Tienes un nuevo mensaje';
 
 
