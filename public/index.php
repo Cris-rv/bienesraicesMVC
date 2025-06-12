@@ -2,6 +2,9 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
+$dotenv = Dotenv\Dotenv::createImmutable(_DIR_);
+$dotenv->load();
+
 use Controllers\LoginController;
 use MVC\Router;
 use Controllers\PropiedadController;
