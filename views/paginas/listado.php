@@ -1,7 +1,7 @@
 <div class="contenedor-anuncios">
             <?php foreach($propiedades as $propiedad) : ?>
             <div class="anuncio">
-                    <img class="imagen-anuncio" src="/build/imagenes/<?php echo $propiedad->imagen; ?>" alt="Anuncio"  loading="lazy">
+                    <img class="imagen-anuncio" src="../../imagenes/<?php echo $propiedad->imagen; ?>" alt="Anuncio"  loading="lazy">
 
                 <div class="contenido-anuncio">
                     <h3><?php echo $propiedad->titulo; ?></h3>
