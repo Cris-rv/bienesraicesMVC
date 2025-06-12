@@ -22,16 +22,16 @@ class Router {
 
 
         // Arreglo de rutas protegidas
-        $rutas_protegidas = ['/admin', '/propiedades/crear', '/propiedades/actualizar', '/propiedades/eliminar', '/vendedores/crear', '/vendedores/actualizar', '/vendedores/eliminar'];
+        // $rutas_protegidas = ['/admin', '/propiedades/crear', '/propiedades/actualizar', '/propiedades/eliminar', '/vendedores/crear', '/vendedores/actualizar', '/vendedores/eliminar'];
 
         $urlActual = $_SERVER['PATH_INFO'] ?? '/';
         $metodo = $_SERVER['REQUEST_METHOD'];
 
-        if($metodo === 'GET') {
-            $fn = $this->rutasGET[$urlActual] ?? null; // Mediante el codigo en $urlActual filtramos dentro de nuestro arreglo, para traer la fn asociada a cada url ($key)
-        } else {
-            $fn = $this->rutasPOST[$urlActual] ?? null;
-        }
+        // if($metodo === 'GET') {
+        //     $fn = $this->rutasGET[$urlActual] ?? null; // Mediante el codigo en $urlActual filtramos dentro de nuestro arreglo, para traer la fn asociada a cada url ($key)
+        // } else {
+        //     $fn = $this->rutasPOST[$urlActual] ?? null;
+        // }
 
         // Si la url actual es la misma que la url protegida y no esta autenticado redireccionamos al usuario
         if(in_array($urlActual, $rutas_protegidas) && !$auth) {
