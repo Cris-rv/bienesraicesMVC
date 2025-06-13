@@ -64,7 +64,7 @@
                         <a href="/logout">Cerrar Sesión</a>
                     <?php endif; ?>
                     <?php if(!$auth) : ?>
-                        <a href="login.php">Iniciar Sesión</a>
+                        <a href="/login">Iniciar Sesión</a>
                     <?php endif; ?>
                 </nav>
             </div>
