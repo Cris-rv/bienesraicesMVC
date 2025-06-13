@@ -82,8 +82,8 @@ class PaginasController {
             $mail->Port = 587;
 
             // Configurar el contenido del mail
-            $mail->setFrom(getenv('SETFROM'));
-            $mail->addAddress(getenv('SETTO'));
+            $mail->setFrom('admin@bienesraices.com');
+            $mail->addAddress('admin@bienesraices.com');
             $mail->Subject = 'Tienes un nuevo mensaje';
 
 
