@@ -76,15 +76,15 @@ class PaginasController {
             $mail->isSMTP();
             $mail->Host = 'smtp-relay.brevo.com';
             $mail->SMTPAuth = true;
-            $mail->Username = getenv('USER');
-            $mail->Password = getenv('PASS');
+            $mail->Username = getenv('BREVO_SMTP_USER'); // Usa getenv()
+            $mail->Password = getenv('BREVO_SMTP_PASSWORD'); // Nunca expones la clave en el código
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
 
-            // Configurar el contenido del mail
-            $mail->setFrom('admin@bienesraices.com');
-            $mail->addAddress('admin@bienesraices.com');
-            $mail->Subject = 'Tienes un nuevo mensaje';
+            // Remitente y destinatario desde variables
+            $mail->setFrom(getenv('BREVO_SMTP_FROM'), 'Admin Bienes Raíces');
+            $mail->addAddress(getenv('BREVO_SMTP_TO')); // Correo donde recibirás los mensajes
+            $mail->Subject = 'Nuevo mensaje desde el sitio web';
 
 
             // Habilitar HTML
