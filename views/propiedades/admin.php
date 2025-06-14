@@ -11,6 +11,7 @@
         <a href="/propiedades/crear" class="boton-verde">Nueva Propiedad</a>
         <a href="/vendedores/crear" class="boton-amarillo">Nuevo(a) Vendedor</a>
         
+        <div class="tablas">
         <h2>Propiedades</h2>
         <table class="propiedades">
             <thead>
@@ -76,4 +77,5 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
+        </div>
    </main>
