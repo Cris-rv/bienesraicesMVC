@@ -19,12 +19,6 @@
     }
 }
 
-.tablas {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 table.propiedades {
     width: 50%;
     @include tablet {
