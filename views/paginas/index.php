@@ -20,7 +20,7 @@
     <section class="imagen-contacto">
         <h2>Encuentra la casa de tus sueños</h2>
         <p>Llena el formulario y un asesor se pondra en contacto contigo a la brevedad</p>
-        <a href="contaco" class="boton-amarillo">contactanos</a>
+        <a href="contacto" class="boton-amarillo">contactanos</a>
     </section>
 
     <div class="contenedor seccion seccion-inferior">
